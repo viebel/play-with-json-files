@@ -1,7 +1,7 @@
 
 # Rationale
 
-Quite often, I need to do dome adhoc data calculation on json files like compare them or aggregate thier data.
+Quite often, I need to do some adhoc data calculation on json files like compare them or aggregate thier data.
 I want to do this data manipulation inside a Clojure REPL wihtout having to write the code that loads the JSON files.
 This is the purpose of this project.
 
@@ -9,9 +9,21 @@ This is the purpose of this project.
 
 ```bash
 $ clj -e "$(< src/core.clj)" -r a.json b.json
+#'read-json-files.core/main
+#'read-json-files.core/args
+#'read-json-files.core/b
+read-json-files.core=>
 ```
 
-It will open a Clojure REPL, where two vars `a` and `b` are defined. The vars hold a Clojure object of the contents of `a.json` and `b.json`
+
+It opens a Clojure REPL, where two vars `a` and `b` are defined. The vars hold a Clojure object of the contents of `a.json` and `b.json`
+
+Inside the REPL, I am free to manipulate `a` and `b`:
+
+```bash
+read-json-files.core=> (keys a)
+("items")
+```
 
 
 # Implementation details
