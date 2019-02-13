@@ -8,7 +8,12 @@ This is the purpose of this project.
 # How to use
 
 ```bash
-$ clj -e "$(< read_json_files/src/core.clj)" -r a.json b.json
+$ clj -e "$(< src/core.clj)" -r a.json b.json
 ```
 
 It will open a Clojure REPL, where two vars `a` and `b` are defined. The vars hold a Clojure object of the contents of `a.json` and `b.json`
+
+
+# Implementation details
+
+It is not possible to use both `-m` and `-r` flags. That's why I use the `-e` flag and pass it the contents of the source file.
